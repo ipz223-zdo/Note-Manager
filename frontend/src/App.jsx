@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 import NotesList from './components/NotesList';
 import AddNoteForm from './components/AddNoteForm';
+import CookiePopup from './components/CookiePopup';
 
 const App = () => {
     const [notes, setNotes] = useState([]);
@@ -31,6 +32,7 @@ const App = () => {
     return (
         <div>
             <h1>Notes App</h1>
+            <CookiePopup />
             <AddNoteForm addNote={addNote} />
             <NotesList notes={notes} />
         </div>
