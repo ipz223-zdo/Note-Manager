@@ -1,3 +1,16 @@
+/**
+ * Компонент для додавання нової нотатки.
+ * Містить форму для введення заголовка та вмісту нотатки.
+ *
+ * @component
+ * @example
+ * return (
+ *   <AddNote onAddNote={handleAddNote} />
+ * );
+ *
+ * @param {Function} onAddNote - Функція, яка викликається для додавання нової нотатки.
+ * @returns {JSX.Element} Форма для додавання нотатки.
+ */
 import React, { useState } from 'react';
 
 const AddNoteForm = ({ addNote }) => {

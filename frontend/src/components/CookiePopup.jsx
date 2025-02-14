@@ -1,7 +1,20 @@
 // src/components/CookiePopup.jsx
+/**
+ * Компонент для відображення попапу cookie згідно з вимогами GDPR.
+ * Відображає повідомлення з кнопкою для погодження на використання файлів cookie.
+ *
+ * @component
+ * @example
+ * return <CookiePopup />;
+ */
 import React from 'react';
 import CookieConsent from 'react-cookie-consent';
 
+/**
+ * Компонент для відображення попапу cookie.
+ *
+ * @returns {JSX.Element} Рендер попапу для cookie.
+ */
 const CookiePopup = () => {
     return (
         <CookieConsent

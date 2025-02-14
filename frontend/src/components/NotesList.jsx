@@ -1,3 +1,16 @@
+/**
+ * Компонент для відображення списку нотаток.
+ * Виводить усі наявні нотатки на сторінці.
+ *
+ * @component
+ * @example
+ * return (
+ *   <NoteList notes={notes} />
+ * );
+ *
+ * @param {Array<Object>} notes - Масив об'єктів нотаток, кожен з яких має `id`, `title`, та `content`.
+ * @returns {JSX.Element} Список нотаток.
+ */
 import React from 'react';
 
 const NotesList = ({ notes }) => {
