@@ -15,14 +15,14 @@ import CookieConsent from 'react-cookie-consent';
  *
  * @returns {JSX.Element} Рендер попапу для cookie.
  */
-const CookiePopup = () => {
+const CookiePopup = ({ customStyle, customButtonStyle }) => {
     return (
         <CookieConsent
             location="bottom"
             buttonText="Прийняти"
             cookieName="user-consent"
-            style={{ background: "#2B373B", color: "#fff", fontSize: "14px" }}
-            buttonStyle={{
+            style={customStyle || { background: "#2B373B", color: "#fff", fontSize: "14px" }}
+            buttonStyle={customButtonStyle || {
                 color: "#4e503b",
                 fontSize: "13px",
                 background: "#f1d600",

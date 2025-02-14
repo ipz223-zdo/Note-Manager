@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from 'react';
+import '../styles/App.css';
+
 /**
  * Компонент для додавання нової нотатки.
  * Містить форму для введення заголовка та вмісту нотатки.
@@ -11,11 +14,14 @@
  * @param {Function} onAddNote - Функція, яка викликається для додавання нової нотатки.
  * @returns {JSX.Element} Форма для додавання нотатки.
  */
-import React, { useState } from 'react';
+const AddNoteForm = ({ addNote, title: initialTitle, content: initialContent }) => {
+    const [title, setTitle] = useState(initialTitle || '');
+    const [content, setContent] = useState(initialContent || '');
 
-const AddNoteForm = ({ addNote }) => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    useEffect(() => {
+        setTitle(initialTitle);
+        setContent(initialContent);
+    }, [initialTitle, initialContent]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -43,7 +49,7 @@ const AddNoteForm = ({ addNote }) => {
             <br />
             <label>
                 Content:
-                <br/>
+                <br />
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
