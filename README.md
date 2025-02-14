@@ -8,13 +8,21 @@ Note Manager — це простий API для управління нотат�
 2. Запустити сервера:
    ```
    cd backend
+   ```
+   ```
    npm install
+   ```
+   ```
    nodemon server.js
    ```
 3. Запустити frontend:
     ```
    cd frontend
+   ```
+   ```
    npm install
+   ```
+   ```
    npm run dev
    ```
 4. Swagger-документація API доступна за адресою: `http://localhost:5000/api-docs`
