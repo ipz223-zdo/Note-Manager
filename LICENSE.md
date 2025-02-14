@@ -21,6 +21,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-# Ліцензії для залежностей
+### Licences for dependencies
 
-Усі залежності цього проєкту мають відповідні ліцензії. Звіт про ліцензії залежностей можна знайти у файлі [backend-license-report.json](backend/license-report.json) та [frontend-license-report.json](frontend/license-report.json).
+All dependencies of this project are licensed accordingly. The dependency licence report can be found in the file [backend-license-report.json](backend/license-report.json) and [frontend-license-report.json](frontend/license-report.json).

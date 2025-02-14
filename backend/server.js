@@ -1,13 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
+const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const swaggerSpec = require("./swagger/swaggerDefinition");
+
 app.use(cors());
 app.use(express.json());
+
+// Підключення Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Читання нотаток з файлу
 function loadNotes() {
@@ -26,12 +32,56 @@ function saveNotes(notes) {
 
 let notes = loadNotes();
 
-// Отримати всі нотатки
+/**
+ * @swagger
+ * /notes:
+ *   get:
+ *     summary: Отримати всі нотатки
+ *     description: Повертає список усіх нотаток.
+ *     responses:
+ *       200:
+ *         description: Список нотаток
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   title:
+ *                     type: string
+ *                   content:
+ *                     type: string
+ */
 app.get("/notes", (req, res) => {
     res.json(notes);
 });
 
-// Додати нову нотатку
+/**
+ * @swagger
+ * /notes:
+ *   post:
+ *     summary: Додати нову нотатку
+ *     description: Додає нову нотатку в список.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               content:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Нова нотатка додана
+ *       400:
+ *         description: Title and content are required
+ */
 app.post("/notes", (req, res) => {
     const { title, content } = req.body;
     if (!title || !content) {
