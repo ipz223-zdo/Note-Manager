@@ -18,7 +18,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Читання нотаток з файлу
 function loadNotes() {
     try {
-        const data = fs.readFileSync("notes.json", "utf8");
+        const data = fs.readFileSync("../notes.json", "utf8");
         return JSON.parse(data);
     } catch (err) {
         return [];
@@ -27,7 +27,7 @@ function loadNotes() {
 
 // Запис нотаток у файл
 function saveNotes(notes) {
-    fs.writeFileSync("notes.json", JSON.stringify(notes), "utf8");
+    fs.writeFileSync("../notes.json", JSON.stringify(notes), "utf8");
 }
 
 let notes = loadNotes();
